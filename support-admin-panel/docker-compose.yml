@@ -4,7 +4,7 @@ services:
 
   app:
     build: .
-    container_name: addlaw_app
+    container_name: addlaw_app_supp
     restart: always
     env_file:
       - .env
@@ -26,7 +26,7 @@ services:
     depends_on:
       - app
     networks:
-      - addlaw_net
+      - addlaw_net_supp
 
   queue:
     build: .
@@ -36,7 +36,7 @@ services:
     depends_on:
       - app
     networks:
-      - addlaw_net
+      - addlaw_net_supp
     working_dir: /var/www
 
   scheduler:
@@ -47,8 +47,8 @@ services:
     depends_on:
       - app
     networks:
-      - addlaw_net
+      - addlaw_net_supp
     working_dir: /var/www
 
 networks:
-  addlaw_net:
+  addlaw_net_supp:
